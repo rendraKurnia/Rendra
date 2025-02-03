@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body { 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            background-color: pink; 
+            position: relative;
+        }
+        .container { 
+            margin-top: 50px; 
+        }
+        .bear-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .bear {
+            width: 200px;
+            animation: jump 1.5s infinite alternate ease-in-out;
+        }
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        h1 {
+            margin-bottom: 50px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            margin-top: 20px;
+        }
+        button { 
+            padding: 10px 20px; /* Reduced padding */
+            font-size: 18px; /* Reduced font size */
+            cursor: pointer; 
+            border: none;
+            border-radius: 10px;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        #yes {
+            background-color: red;
+            color: white;
+            position: absolute;
+            left: 30%;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+            position: absolute;
+            right: 30%;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        function moveNoButton() {
+            let btnNo = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 200);
+            let y = Math.random() * (window.innerHeight - 200);
+            btnNo.style.left = `${x}px`;
+            btnNo.style.top = `${y}px`;
+        }
+
+        function goToNextPage() {
+            window.location.href = "yes.html"; // Arahkan ke halaman yes.html
+        }
+
+        function moveNoButtonOnClick() {
+            moveNoButton(); // Move the "No" button when clicked
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="bear-container">
+            <img src="bear.gif.gif" class="bear" alt="Cute Panda Holding Rose">
+        </div>
+        <h1>Hi Intan, Will You Be My Valentine? 💖</h1>
+        <div class="button-container">
+            <button id="yes" onclick="goToNextPage()">Yes</button>
+            <button id="no" onmouseover="moveNoButton()" onclick="moveNoButtonOnClick()">No</button>
+        </div>
+    </div>
+</body>
+</html>
